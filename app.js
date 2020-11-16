@@ -11,8 +11,8 @@ mongoose
     "mongodb+srv://shakabatina:Yohannbatina2004@cluster0.zylwr.mongodb.net/test?retryWrites=true&w=majority",
     { useNewUrlParser: true, useUnifiedTopology: true }
   )
-  .then(() => console.log("Connexion à MongoDB réussie !"))
-  .catch(() => console.log("Connexion à MongoDB échouée !"));
+  .then(() => console.log("Connexion à MongoDB reussie !"))
+  .catch(() => console.log("Connexion à MongoDB echouee !"));
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -29,7 +29,7 @@ app.use((req, res, next) => {
 app.use(bodyParser.json()); // bodyParser is used by all endpoints
 
 app.use("images", express.static(path.join(__dirname, "images")));
-app.use("/api/sauce", sauceRoutes);
+app.use("/api/sauces", sauceRoutes);
 app.use("/api/auth", userRoutes);
 
 module.exports = app;

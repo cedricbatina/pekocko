@@ -1,4 +1,4 @@
-const http = require("https"); // importing Node's HTTP pack
+const http = require("http"); // importing Node's HTTP pack. https ilo faut un certificat ssl
 const app = require("./app");
 
 const normalizePort = (val) => {
@@ -36,14 +36,11 @@ const errorHandler = (error) => {
       throw error;
   }
 };
-
 const server = http.createServer(app);
-
 server.on("error", errorHandler);
 server.on("listening", () => {
   const address = server.address();
   const bind = typeof address === "string" ? "pipe" + address : "port " + port;
   console.log("Listening on" + bind);
 });
-
 server.listen(port);

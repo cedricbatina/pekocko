@@ -10,7 +10,7 @@ const storage = multer.diskStorage({
   },
   filename: (req, file, callback) => {
     const name = file.originalname.split(" ").join("_"); // creating a new file name by switching spaces with underscores
-    const extension = MIME_TYPES([file.mimetype]);
+    const extension = MIME_TYPES[file.mimetype];
     callback(null, name + Date.now() + "." + extension);
   },
 });
